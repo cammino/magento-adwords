@@ -1,0 +1,8 @@
+INSTALL (for git)
+
+mkdir app/code/community/Cammino
+git submodule add git@github.com:mferracioli/magento-adwords.git app/code/community/Cammino/Adwords
+cp app/code/community/Cammino/Adwords/Cammino_Adwords.xml app/etc/modules/
+
+TODO
+
