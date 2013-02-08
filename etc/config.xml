@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Cammino_Adwords>
+			<version>0.1.0</version>
+		</Cammino_Adwords>
+	</modules>
+	<global>
+		<models>
+			<adwords>
+				<class>Cammino_Adwords_Model</class>
+			</adwords>
+		</models>
+		<blocks>
+			<adwords>
+				<class>Cammino_Adwords_Block</class>
+			</adwords>
+		</blocks>
+		<events>
+			<checkout_onepage_controller_success_action>
+				<observers>
+					<adwords_observer>
+						<type>singleton</type>
+						<class>adwords/observer</class>
+						<method>addTracker</method>
+					</adwords_observer>
+				</observers>
+			</checkout_onepage_controller_success_action>
+		</events>
+	</global>
+</config>
