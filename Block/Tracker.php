@@ -20,23 +20,29 @@ class Cammino_Adwords_Block_Tracker extends Mage_Core_Block_Template {
 	}
 
 	protected function _toHtml() {
-		$html .= "<script type=\"text/javascript\">\n";
-		$html .= "/* <![CDATA[ */\n";
-		$html .= "var google_conversion_id = ". strval($this->_conversionId) .";\n";
-		$html .= "var google_conversion_language = \"". strval($this->_conversionLanguage) ."\";\n";
-		$html .= "var google_conversion_format = \"". strval($this->_conversionFormat) ."\";\n";
-		$html .= "var google_conversion_color = \"". strval($this->_conversionColor) ."\";\n";
-		$html .= "var google_conversion_label = \"". strval($this->_conversionLabel) ."\";\n";
-		$html .= "var google_conversion_value = ". strval($this->_conversionValue) .";\n";
-		$html .= "/* ]]> */\n";
-		$html .= "</script>\n";
-		$html .= "<script type=\"text/javascript\" src=\"https://www.googleadservices.com/pagead/conversion.js\">\n";
-		$html .= "</script>\n";
-		$html .= "<noscript>\n";
-		$html .= "<div style=\"display:inline;\">\n";
-		$html .= "<img height=\"1\" width=\"1\" style=\"border-style:none;\" alt=\"\" src=\"https://www.googleadservices.com/pagead/conversion/". strval($this->_conversionId) ."/?value=". strval($this->_conversionValue) ."&amp;label=". strval($this->_conversionLabel) ."&amp;guid=ON&amp;script=0\"/>\n";
-		$html .= "</div>\n";
-		$html .= "</noscript>\n";
+
+		$html = "";
+
+		if (strval($this->_enabled) == "1") {
+			$html .= "<script type=\"text/javascript\">\n";
+			$html .= "/* <![CDATA[ */\n";
+			$html .= "var google_conversion_id = ". strval($this->_conversionId) .";\n";
+			$html .= "var google_conversion_language = \"". strval($this->_conversionLanguage) ."\";\n";
+			$html .= "var google_conversion_format = \"". strval($this->_conversionFormat) ."\";\n";
+			$html .= "var google_conversion_color = \"". strval($this->_conversionColor) ."\";\n";
+			$html .= "var google_conversion_label = \"". strval($this->_conversionLabel) ."\";\n";
+			$html .= "var google_conversion_value = ". strval($this->_conversionValue) .";\n";
+			$html .= "/* ]]> */\n";
+			$html .= "</script>\n";
+			$html .= "<script type=\"text/javascript\" src=\"https://www.googleadservices.com/pagead/conversion.js\">\n";
+			$html .= "</script>\n";
+			$html .= "<noscript>\n";
+			$html .= "<div style=\"display:inline;\">\n";
+			$html .= "<img height=\"1\" width=\"1\" style=\"border-style:none;\" alt=\"\" src=\"https://www.googleadservices.com/pagead/conversion/". strval($this->_conversionId) ."/?value=". strval($this->_conversionValue) ."&amp;label=". strval($this->_conversionLabel) ."&amp;guid=ON&amp;script=0\"/>\n";
+			$html .= "</div>\n";
+			$html .= "</noscript>\n";
+		}
+
 		return $html;
 	}
 
